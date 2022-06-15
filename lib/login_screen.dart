@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:simple_code/auth_data.dart';
+import 'package:simple_code/counter.dart';
+
+import 'generated/l10n.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -17,15 +21,17 @@ class LoginScreenState extends State<LoginScreen> {
 
   void onEnterEnableFunction() {
     FocusScope.of(context).unfocus();
-    if (Login == "qwerty" && Pass == "123456ab") {
+    if (Login == AuthData.Login && Pass == AuthData.Pass) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Counter()));
     } else {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: Text("Попробуйте снова"),
+          title: Text(S.of(context).try_again), //"Попробуйте снова"),
           actions: [
             TextButton(
-              child: Text("Закрыть"),
+              child: Text(S.of(context).close), //"Закрыть"),
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
@@ -40,7 +46,7 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Авторизация"),
+        title: Text(S.of(context).auth), //"Авторизация"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -49,14 +55,17 @@ class LoginScreenState extends State<LoginScreen> {
           children: <Widget>[
             Spacer(),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Логин',
+              decoration: InputDecoration(
+                labelText:
+                    S.of(context).login, //'Логин', //S.of(context).login,,
               ),
               maxLength: 8,
               maxLines: 1,
               validator: (String? value) {
                 return (value != null && value.length < 3 && value.length != 0)
-                    ? 'Логин должен содержать не менее 8 символов'
+                    ? S
+                        .of(context)
+                        .login_len_worning //'Логин должен содержать не менее 8 символов'
                     : null;
               },
               autovalidateMode: AutovalidateMode.always,
@@ -72,15 +81,17 @@ class LoginScreenState extends State<LoginScreen> {
             ),
             TextFormField(
               autovalidateMode: AutovalidateMode.always,
-              decoration: const InputDecoration(
-                labelText: 'Пароль',
-              ),
+              decoration:
+                  InputDecoration(labelText: S.of(context).pass //'Пароль',
+                      ),
               maxLength: 16,
               maxLines: 1,
               obscureText: true,
               validator: (String? value) {
                 return (value != null && value.length < 8 && value.length != 0)
-                    ? 'Логин должен содержать не менее 8 символов'
+                    ? S
+                        .of(context)
+                        .pass_len_worning //'Логин должен содержать не менее 8 символов'
                     : null;
               },
               onChanged: (value) {
@@ -96,7 +107,9 @@ class LoginScreenState extends State<LoginScreen> {
             Spacer(),
             ElevatedButton(
               onPressed: onEnterFunction,
-              child: Text("Вход"),
+              child: Text(
+                S.of(context).enter,
+              ), //"Вход"),
             )
           ],
         ),

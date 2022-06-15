@@ -1,1 +1,14 @@
-{}
+{"try_again": "try again",
+  "close": "close",
+  "auth": "auth",
+  "login": "login",
+  "pass": "password",
+  "login_len_worning": "login mast have at least at 3 sign",
+  "pass_len_worning": "pass mast have at least at 8 sign",
+  "enter":"enter",
+  "counter":"Counter",
+  "counter_value":"Counter value",
+  "language":"Language",
+  "english":"english",
+  "russian":"Russian"
+}

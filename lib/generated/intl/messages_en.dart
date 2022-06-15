@@ -21,5 +21,21 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "auth": MessageLookupByLibrary.simpleMessage("auth"),
+        "close": MessageLookupByLibrary.simpleMessage("close"),
+        "counter": MessageLookupByLibrary.simpleMessage("Counter"),
+        "counter_value": MessageLookupByLibrary.simpleMessage("Counter value"),
+        "english": MessageLookupByLibrary.simpleMessage("english"),
+        "enter": MessageLookupByLibrary.simpleMessage("enter"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "login": MessageLookupByLibrary.simpleMessage("login"),
+        "login_len_worning": MessageLookupByLibrary.simpleMessage(
+            "login mast have at least at 3 sign"),
+        "pass": MessageLookupByLibrary.simpleMessage("password"),
+        "pass_len_worning": MessageLookupByLibrary.simpleMessage(
+            "pass mast have at least at 8 sign"),
+        "russian": MessageLookupByLibrary.simpleMessage("Russian"),
+        "try_again": MessageLookupByLibrary.simpleMessage("try again")
+      };
 }

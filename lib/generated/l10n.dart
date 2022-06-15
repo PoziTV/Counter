@@ -49,6 +49,136 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `try again`
+  String get try_again {
+    return Intl.message(
+      'try again',
+      name: 'try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `close`
+  String get close {
+    return Intl.message(
+      'close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `auth`
+  String get auth {
+    return Intl.message(
+      'auth',
+      name: 'auth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login`
+  String get login {
+    return Intl.message(
+      'login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password`
+  String get pass {
+    return Intl.message(
+      'password',
+      name: 'pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login mast have at least at 3 sign`
+  String get login_len_worning {
+    return Intl.message(
+      'login mast have at least at 3 sign',
+      name: 'login_len_worning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pass mast have at least at 8 sign`
+  String get pass_len_worning {
+    return Intl.message(
+      'pass mast have at least at 8 sign',
+      name: 'pass_len_worning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter`
+  String get enter {
+    return Intl.message(
+      'enter',
+      name: 'enter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Counter`
+  String get counter {
+    return Intl.message(
+      'Counter',
+      name: 'counter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Counter value`
+  String get counter_value {
+    return Intl.message(
+      'Counter value',
+      name: 'counter_value',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `english`
+  String get english {
+    return Intl.message(
+      'english',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Russian`
+  String get russian {
+    return Intl.message(
+      'Russian',
+      name: 'russian',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

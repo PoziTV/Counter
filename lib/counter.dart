@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+
+import 'generated/l10n.dart';
 
 class Counter extends StatefulWidget {
-  const Counter({Key? key, required this.title}) : super(key: key);
+  const Counter({Key? key, title}) : super(key: key);
 
-  final String title;
+  // final String title = S.of(context).counter;//'Счетчик';
 
   @override
   State<Counter> createState() => _CounterState();
@@ -15,60 +18,96 @@ class _CounterState extends State<Counter> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void changeLocale(String? value) async {
+    if (value == 'en') {
+      await S.load(
+        Locale('en'),
+      );
+      setState(() {});
+    } else {
+      await S.load(
+        Locale('ru_RU'),
+      );
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // print('ssdsds'+Intl.getCurrentLocale());
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(S.of(context).counter),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(S.of(context).language),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+              ),
+              DropdownButton<String>(
+                value: Intl.getCurrentLocale(),
+                items: [
+                  DropdownMenuItem(
+                    value: 'en',
+                    child: Text(
+                      S.of(context).english,
+                    ),
+                  ),
+                  DropdownMenuItem(
+                    value: 'ru_RU',
+                    child: Text(
+                      S.of(context).russian,
+                    ),
+                  ),
+                ],
+                onChanged: changeLocale,
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(S.of(context).counter_value // 'Значение счетчика',
+              ),
+          Text(
+            '$_counter',
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: _incrementCounter,
+                child: const Text('+'), //"Вход"),
+              ),
+              ElevatedButton(
+                onPressed: _decrementCounter,
+                child: const Text('-'), //"Вход"),
+              )
+            ],
+          ),
+          Padding(padding: EdgeInsets.symmetric(vertical: 20)),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
