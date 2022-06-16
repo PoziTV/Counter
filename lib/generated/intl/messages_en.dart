@@ -36,6 +36,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass_len_worning": MessageLookupByLibrary.simpleMessage(
             "pass mast have at least at 8 sign"),
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
-        "try_again": MessageLookupByLibrary.simpleMessage("try again")
+        "try_again": MessageLookupByLibrary.simpleMessage("Please, try again")
       };
 }

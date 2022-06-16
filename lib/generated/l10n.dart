@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `try again`
+  /// `Please, try again`
   String get try_again {
     return Intl.message(
-      'try again',
+      'Please, try again',
       name: 'try_again',
       desc: '',
       args: [],
