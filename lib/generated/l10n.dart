@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `auth`
+  /// `Auth`
   String get auth {
     return Intl.message(
-      'auth',
+      'Auth',
       name: 'auth',
       desc: '',
       args: [],
