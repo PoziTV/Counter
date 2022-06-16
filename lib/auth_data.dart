@@ -1,4 +1,8 @@
 class AuthData {
-  static const String Login = "qwerty";
-  static const String Pass = "123456ab";
+  static isAuthCorrect(String? login, String? pass) {
+    return login == _login && pass == _pass;
+  }
+
+  static const String _login = "qwerty";
+  static const String _pass = "123456ab";
 }

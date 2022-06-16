@@ -7,8 +7,6 @@ import 'generated/l10n.dart';
 class Counter extends StatefulWidget {
   const Counter({Key? key, title}) : super(key: key);
 
-  // final String title = S.of(context).counter;//'Счетчик';
-
   @override
   State<Counter> createState() => _CounterState();
 }

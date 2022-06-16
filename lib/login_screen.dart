@@ -21,7 +21,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   void onEnterEnableFunction() {
     FocusScope.of(context).unfocus();
-    if (Login == AuthData.Login && Pass == AuthData.Pass) {
+    if (AuthData.isAuthCorrect(Login, Pass)) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Counter()));
     } else {
